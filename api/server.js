@@ -11,5 +11,8 @@ server.use(cors());
 server.use(express.json());
 
 configureRoutes(server);
+server.use('/', (req, res) => {
+  res.send(`<h1>Dad Jokes API server</h1>`)
+})
 
 module.exports = server;
