@@ -5,11 +5,12 @@ const jwt = require('jsonwebtoken')
 // Import data model
 const db = require('../database/models')
 
-const { authenticate } = require('../auth/authenticate');
+const { inputDataChecker, requiredData, authenticate } = require('../auth/authenticate');
+const requiredFields = ['username', 'password']
 
 module.exports = server => {
-  server.post('/api/register', register)
-  server.post('/api/login', login);
+  server.post('/api/register', requiredData(inputDataChecker, requiredFields), register)
+  server.post('/api/login', requiredData(inputDataChecker, requiredFields), login);
   server.get('/api/jokes', authenticate, getJokes);
 };
 
