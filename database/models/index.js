@@ -28,7 +28,7 @@ async function find(table) {
 async function findById(id, table) {
   try {
     let data = await db(table)
-      .select('id', 'username', 'department')
+      .select('id', 'username')
       .where({ id: Number(id) })
       .first()
     return data
@@ -65,7 +65,7 @@ async function findByField(table, field, data) {
 async function insert(data, table) {
   try {
     let newRecordId = await db(table).insert(data, 'id')
-    let newRecord = await findById(newRecordId, 'Users')
+    let newRecord = await findById(newRecordId, table)
     return newRecord
   }
   catch (err) {
