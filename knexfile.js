@@ -1,14 +1,46 @@
-// Update with your config settings.
-
+require('dotenv').config()
 module.exports = {
   development: {
     client: 'sqlite3',
-    connection: { filename: './database/auth.db3' }, // change this if you want a different name for the database
-    useNullAsDefault: true, // used to avoid warning on console
-    migrations: {
-      directory: './database/migrations',
-      tableName: 'dbmigrations',
+    useNullAsDefault: true,
+    connection: {
+      filename: './database/auth.db3'
     },
-    seeds: { directory: './database/seeds' },
+    migrations: {
+      directory: './database/migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
+    }
   },
+
+  staging: {
+    client: 'pg',
+    useNullAsDefault: true,
+    connection: {
+      connectionString: process.env.STAGING_DATABASE_URL,
+      ssl: true
+    },
+    migrations: {
+      directory: './database/migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
+    }
+  },
+
+  production: {
+    client: 'pg',
+    connection: {
+      connectionString: process.env.DATABASE_URL,
+      ssl: true
+    },
+    migrations: {
+      directory: './database/migrations'
+    },
+    seeds: {
+      directory: './database/seeds'
+    }
+  }
+
 };

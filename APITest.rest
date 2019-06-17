@@ -1,0 +1,63 @@
+### GET (Basic)
+http://localhost:5000
+
+### Get Jokes
+http://localhost:5000/api/jokes
+
+### Get Jokes [PRODUCTION]
+https://wme-dadjokes-api.herokuapp.com/api/jokes
+
+### GET Jokes (Protected Route)
+GET http://localhost:5000/api/jokes HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE1NjA3NDE4OTcsImV4cCI6MTU2MDc0OTA5N30.pJM8x-lut5pyPPvgxnqQALFotLTG4Prtje1bEYERXok
+
+### GET Jokes (Protected Route) [PRODUCTION]
+GET https://wme-dadjokes-api.herokuapp.com/api/jokes HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTU2MDc0MzMwMSwiZXhwIjoxNTYwNzUwNTAxfQ.wPBE3ZI_0jbx0XfWtUwHBjDXcXVcmyRfwmJbsoxP6QM
+
+### GET Users (by ID)
+http://localhost:5000/api/users/1
+
+### (Register) POST 
+POST http://localhost:5000/api/register HTTP/1.1
+content-type: application/json
+
+{
+  "username": "Tiger",
+  "password": "pass"
+}
+
+
+### (Login) POST 
+POST http://localhost:5000/api/login HTTP/1.1
+content-type: application/json
+
+{
+  "username": "Bobby",
+  "password": "pass1234"
+}
+
+### (Login) POST [Production]
+POST https://wme-dadjokes-api.herokuapp.com/api/login HTTP/1.1
+content-type: application/json
+
+{
+  "username": "Harry",
+  "password": "abc123"
+}
+
+### (Logout) GET 
+http://localhost:5000/api/logout
+
+### (User Update) PUT 
+PUT http://localhost:5000/api/users/6 HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdyZWciLCJkZXBhcnRtZW50IjoiTXVzaWMiLCJpYXQiOjE1NjA0MzkxOTUsImV4cCI6MTU2MDQ0NjM5NSwic3ViIjoiNiJ9.ntV4CwnaDMSJcfa5EFw8FT7v0QrSLkNvhs7WH6S7sTw
+content-type: application/json
+
+{
+  "username": "Greg",
+  "department": "Music"
+}
+
+### DELETE (Users)
+DELETE http://localhost:5000/api/users/600
